@@ -1,1 +1,17 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="header-container">
+  <span
+    class="logo-container"
+    routerLink="/home"
+    style="cursor: pointer; display: flex; align-items: center"
+  >
+    <img src="/images/logoCat.webp" style="height: 40px; margin-right: 10px" />
+    <span style="font-weight: bold">Mi E-comerce</span>
+  </span>
+  <span class="spacer"></span>
+
+  <div class="right-section">
+    <button mat-button routerLink="/cart" class="cart-button">
+      <mat-icon class="cart-icon">shopping_cart</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,72 @@
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.product-grid {
+  display: grid;
+  width: 100%;
+  gap: 12px;
+  grid-template-columns: repeat(2, 1fr); // 2 columnas en móvil por defecto
+}
+
+// Tablet pequeño: 3 columnas
+@media (min-width: 600px) {
+  .container {
+    padding: 16px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+// Desktop: 4 columnas
+@media (min-width: 960px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+// Desktop grande: 5 columnas
+@media (min-width: 1280px) {
+  .product-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 16px;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    color: #999;
+  }
+
+  .logo-cartOff {
+    img {
+      height: 80px;
+      margin: 0;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
