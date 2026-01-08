@@ -8,6 +8,7 @@ import { CategoryService } from '../../core/services/category.service';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/cart.service';
 @Component({
   selector: 'app-lading-page',
   standalone: true,
@@ -22,7 +23,8 @@ export class LadingPageComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private toastr: ToastrService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -55,5 +57,10 @@ export class LadingPageComponent implements OnInit {
     this.categoryService.getProductsByCategory(id).subscribe({
       next: (data: Product[]) => (this.products = data),
     });
+  }
+
+  onAddToCart(product: Product) {
+    this.toastr.success(`${product.title} se añadio al carrito`, '¡exito!');
+    this.cartService.addToCart(product);
   }
 }

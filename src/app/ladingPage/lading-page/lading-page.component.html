@@ -1,7 +1,9 @@
 <div class="container">
   <div class="filter-section">
     <mat-chip-listbox class="category-chips" aria-label="Seccion de categorias">
-      <mat-chip-option selected (click)="loadProducts()">Todos</mat-chip-option>
+      <mat-chip-option selected (click)="loadProducts()">
+        Todos
+      </mat-chip-option>
       @for (cat of categories; track cat.id){
       <mat-chip-option (click)="filterByCategory(cat.id)">{{
         cat.name
@@ -11,7 +13,7 @@
   </div>
   <div class="product-grid">
     @for (product of products; track product.id) {
-    <app-product-card [product]="product"></app-product-card>
+    <app-product-card [product]="product" (addToCard)="onAddToCart($event)"></app-product-card>
     } @empty {
     <div class="no-products">
       <mat-icon>sentiment-dissatisfied</mat-icon>
